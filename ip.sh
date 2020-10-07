@@ -1,13 +1,14 @@
 #!/bin/bash
 set -e
+
+cd "$(dirname "$0")"
+
 #####
 #Save current and old IP
 #####
 
 #Settings
-work_path="/opt/app/getIP/"
 xdate="$(date "+[%Y-%m-%d %H:%M:%S]")"
-cd $work_path
 
 #c=current
 cip_file="ip.txt"
