@@ -14,7 +14,7 @@ xdate="$(date "+[%Y-%m-%d %H:%M:%S]")"
 cip_file="ip.txt"
 if [ ! -e $cip_file ]; then
   echo -e "IP file not found! \nCreate IP file"
-  echo "1.1.1.1" > $lip_file
+  echo "1.1.1.1" > $cip_file
 fi
 
 cip="$(curl --silent ifconfig.me/ip)"
