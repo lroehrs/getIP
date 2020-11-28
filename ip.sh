@@ -11,13 +11,16 @@ cd "$(dirname "$0")"
 xdate="$(date "+[%Y-%m-%d %H:%M:%S]")"
 
 #c=current
+#if file doesn't exit create
 cip_file="ip.txt"
 if [ ! -e $cip_file ]; then
   echo -e "IP file not found! \nCreate IP file"
   echo "1.1.1.1" > $cip_file
 fi
 
-cip="$(curl --silent ifconfig.me/ip)"
+#got current ip adresse
+#if file doesn't exit create
+cip="$(curl --silent https://ifconfig.me/ip)"
 
 #l=last
 lip_file="l_ip.txt"
@@ -27,12 +30,14 @@ if [ ! -e $lip_file ]; then
 fi
 
 #o=old
+#if file doesn't exit create
 oip_file="ip_old.txt"
 if [ ! -e $oip_file ]; then
   echo -e "Old IP file not found! \necho Create Last IP file"
   echo "$xdate - " > $oip_file
 fi
 
+#check changes, if exist set new ip to last
 if [ $cip = $(cat ip.txt) ]; then
   echo -e "Current IP is equal to last, noting to do. \nBye!"
 else
